@@ -15,7 +15,7 @@ $(function() {
             return false;
         }
         //check that it's numeric
-        if (isNaN(Number(number1))){
+        if (isNaN(Number(zip))){
             return false;
         }
         return true;
