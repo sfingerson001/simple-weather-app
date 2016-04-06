@@ -27,7 +27,6 @@ $(function() {
        var zipCheck = validateZIP(zipcode);
        
        if (zipCheck) {
-       
            var url = 'http://api.openweathermap.org/data/2.5/weather?zip='+zipcode+',us&appid='+apiKey;
 
            $.getJSON(url).done(function(data){
@@ -43,17 +42,17 @@ $(function() {
                    );
 
            }).fail(function(e) {
-                 $('#weather').html(
-                '<h3>Something went wrong...</h3>'+
-                '<p>Code:'+e.cod+'</p>'+
-                '<p>Message:'+e.message+'</p>'
+                  $('#weather').html(
+                '<h3>Oops! Something went wrong...</h3>'+
+                '<p>Code: '+e.responseJSON.cod+'</p>'+
+                '<p>Message: '+e.responseJSON.message+'</p>'
                );
            });
            
        } else {
            $('#weather').html(
                 '<h3><strong>Bad Zipcode: </strong>Please enter only 5 digit zipcodes and try again.</h3>'
-               );
+           );
        }
        
    })
